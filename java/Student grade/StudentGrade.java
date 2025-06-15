@@ -22,7 +22,8 @@ public static void main(String [] args){
 					break;
 					}
 				}
-			}	
+			}
+		System.out.println();	
 		}
 	int[] total = new int[numberOfStudent];
 	double[] average = new double[numberOfStudent];
@@ -34,7 +35,7 @@ public static void main(String [] args){
 			sum += dosier[row][col];
 			}
 			total[row] = sum;
-			average[row]= sum / numberOfSubjects;
+			average[row]= (double)sum / numberOfSubjects;
 		}	
 	for(int row = 0; row < dosier.length; row++){
 		int pos = 1;
@@ -45,40 +46,49 @@ public static void main(String [] args){
 			}	
 		position[row] = pos;
 		}
-	System.out.println("STUDENT\tSUB1\tSUB2\tSUB3\tTOTAL\tAVERAGE\tPOSITION");
+	System.out.println("STUDENT\t\tSUB1\tSUB2\tSUB3\tTOTAL\tAVERAGE\tPOSITION");
 	for(int row = 0; row < dosier.length; row++){
-		System.out.print("STUDENT 1" + (row + 1) + "\t");
+		System.out.print("STUDENT " + (row + 1) + "\t");
 		for(int col = 0; col < dosier[row].length; col++){
 			System.out.print(dosier[row][col] + "\t");
 			}
-		System.out.printf("%d\t%.2f\t%d\n", total[row], average[row], position[row]);
+		System.out.printf("%d\t%.2f\t%d\n\n", total[row], average[row], position[row]);
 		}
 		
 
+		
+
+	for(int row = 0; row < numberOfSubjects; row++){
 		int sumOfSubject = 0;
-		int averageOfSubject = 0;
+		double averageOfSubject = 0;
 		int pass = 0;
 		int fail = 0;
 		int count = 0;
-
-	for(int row = 0; row < dosier.length; row++){
-		System.out.println("SUBJECT SUMMARY\nSUBJECT" + (row + 1) + ":");
+		int counter = 0;
+		int maxScore = 0;
+		int lowScore = 100;
+		System.out.println("SUBJECT SUMMARY\nSUBJECT" + (row + 1) + ": \n");
 		for(int col = 0; col < dosier.length; col++){
-		if(dosier[col][count] > dosier[col][count]){
-		System.out.print("Highest scoring student is: Student " + (row + 1) + "Scoring " + dosier[row][count]);
-		}else{
-			System.out.print("Lowest scoring student is: Student " + (row + 1) + "Scoring " + dosier[row][count]);
+		if(dosier[col][row] > maxScore){
+			maxScore = dosier[col][row];
+			count = col;
+		}
+		if(dosier[col][row] < lowScore){
+			lowScore = dosier[col][row];
+			counter = col;
 			}
-		if(dosier[col][count] > 40){
+		if(dosier[col][row] > 40){
 			pass += 1;
 			}else{ fail += 1;}
-		sumOfSubject += dosier[col][count]; 
+		sumOfSubject += dosier[col][row]; 
 		}
-			averageOfSubject = sumOfSubject / numberOfStudent;
-			System.out.print("Total is: " + sumOfSubject);
-			System.out.print("Average is: " + averageOfSubject);
-			System.out.print("Number of passes: " + pass);
-			System.out.print("Number of failures: " + fail);
+			averageOfSubject =(double) sumOfSubject / numberOfStudent;
+			System.out.println("Highest Scoring student is : Student " + (count + 1) + " Scoring " + maxScore);
+			System.out.println("Lowest Scoring student is : Student " + (counter + 1) + " Scoring " + lowScore);
+			System.out.println("Total is: " + sumOfSubject);
+			System.out.println("Average is: " + averageOfSubject);
+			System.out.println("Number of passes: " + pass);
+			System.out.println("Number of failures: " + fail);
 		}
 }
 }  
