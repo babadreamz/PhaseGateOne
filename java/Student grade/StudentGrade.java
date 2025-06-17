@@ -69,19 +69,19 @@ public static void main(String [] args){
 		int lowScore = 100;
 		System.out.println("SUBJECT SUMMARY\nSUBJECT" + (row + 1) + ": \n");
 		for(int col = 0; col < dosier.length; col++){
-		if(dosier[col][row] > maxScore){
-			maxScore = dosier[col][row];
-			count = col;
-		}
-		if(dosier[col][row] < lowScore){
-			lowScore = dosier[col][row];
-			counter = col;
+			if(dosier[col][row] > maxScore){
+				maxScore = dosier[col][row];
+				count = col;
 			}
-		if(dosier[col][row] > 40){
-			pass += 1;
-			}else{ fail += 1;}
-		sumOfSubject += dosier[col][row]; 
-		}
+			if(dosier[col][row] < lowScore){
+				lowScore = dosier[col][row];
+				counter = col;
+				}
+			if(dosier[col][row] > 40){
+				pass += 1;
+				}else{ fail += 1;}
+			sumOfSubject += dosier[col][row]; 
+			}
 			averageOfSubject =(double) sumOfSubject / numberOfStudent;
 			System.out.println("Highest Scoring student is : Student " + (count + 1) + " Scoring " + maxScore);
 			System.out.println("Lowest Scoring student is : Student " + (counter + 1) + " Scoring " + lowScore);
