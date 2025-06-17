@@ -12,6 +12,19 @@ public static void main(String [] args){
 			break;
 			}
 			}
+System.out.print("  ");
+
+
+	int temp2 = 1;
+	int count = 0;
+	while(true){
+		temp2 = temp2 * 8;
+		System.out.print(temp2 + " ");
+		count++;
+		if(count == 5){
+			break;
+			}
+			}
 
 }
 }
