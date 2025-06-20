@@ -6,7 +6,11 @@ while True:
 	while True:
 		try:
 			cycle_length = int(input("Enter your cycle length in days: "))
-			break
+			if cycle_length >= 21 and cycle_length <= 35:
+				break
+			else: 
+				print("Invalid cycle length, enter a from 21 to 35")
+				continue
 		except ValueError:
 			print("Days must be a whole number ")
 
